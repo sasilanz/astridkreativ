@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeichnungen — Astrid's Kreativecke</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <span class="site-title">Astrid's Kreativecke</span>
+    <ul>
+      <li><a href="index.html#musik">Musik</a></li>
+      <li><a href="index.html#ueber-mich">Über mich</a></li>
+      <li><a href="zeichnungen.html">Zeichnungen</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Meine Zeichnungen</h2>
+  </section>
+
+  <div class="gallery">
+    <a href="assets/img/katze.jpeg"><img src="assets/img/katze.jpeg" alt="Katze"></a>
+    <a href="assets/img/baer.jpeg"><img src="assets/img/baer.jpeg" alt="Bär"></a>
+    <a href="assets/img/vogel.jpeg"><img src="assets/img/vogel.jpeg" alt="Vogel"></a>
+    <a href="assets/img/koala.jpeg"><img src="assets/img/koala.jpeg" alt="Koala"></a>
+    <a href="assets/img/labi.jpeg"><img src="assets/img/labi.jpeg" alt="Labrador"></a>
+    <a href="assets/img/pferdekopf.jpeg"><img src="assets/img/pferdekopf.jpeg" alt="Pferdekopf"></a>
+    <a href="assets/img/ballerino.jpeg"><img src="assets/img/ballerino.jpeg" alt="Ballerino"></a>
+    <a href="assets/img/balllerina.jpeg"><img src="assets/img/balllerina.jpeg" alt="Ballerina"></a>
+    <a href="assets/img/loewenkopf.jpeg"><img src="assets/img/loewenkopf.jpeg" alt="Löwenkopf"></a>
+    <a href="assets/img/teekanne.jpeg"><img src="assets/img/teekanne.jpeg" alt="Teekanne"></a>
+    <a href="assets/img/3d.jpeg"><img src="assets/img/3d.jpeg" alt="3D Zeichnung"></a>
+    <a href="assets/img/3d_leiter.jpeg"><img src="assets/img/3d_leiter.jpeg" alt="3D Leiter"></a>
+    <a href="assets/img/babybuesi.jpeg"><img src="assets/img/babybuesi.jpeg" alt="Babybüsi"></a>
+  </div>
+
+  <div class="lightbox-overlay" id="lightbox">
+    <img src="" alt="Vollbild">
+  </div>
+
+  <footer>
+    &copy; 2025 Astrid's Kreativecke
+  </footer>
+
+  <script>
+    const gallery = document.querySelector('.gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    gallery.addEventListener('click', function(e) {
+      e.preventDefault();
+      const link = e.target.closest('a');
+      if (!link) return;
+      lightboxImg.src = link.href;
+      lightboxImg.alt = e.target.alt;
+      lightbox.classList.add('active');
+    });
+
+    lightbox.addEventListener('click', function() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    });
+  </script>
+
+</body>
+</html>
