@@ -1,9 +1,0 @@
-services:
-  web:
-    build: .
-    restart: unless-stopped
-    networks:
-      - app
-
-networks:
-  app:
